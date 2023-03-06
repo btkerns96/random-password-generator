@@ -27,5 +27,21 @@ function generatePassword() {
 }
 
 function getPrompts(){
-  passwordLength = prompt("How many characters would you like in your password? ")
+  passwordLength = (prompt("How many characters would you like in your password? (8-126)"))
+    while ((passwordLength < 8) || (passwordLength > 126)){
+      passwordLength = prompt ("Please enter a number between 8 and 126.")
+    }
+  if (confirm("Would you like lowercase letters in your password?")) {
+    passwordOptions = passwordOptions.concat(lowerCase);
+  }
+  if (confirm("Would you like uppercase letters in your password?")) {
+    passwordOptions = passwordOptions.concat(upperCase);
+  }
+  if (confirm("Would you like symbols in your password?")) {
+    passwordOptions = passwordOptions.concat(symbols);
+  }
+  if (confirm("Would you like numbers in your password?")) {
+    passwordOptions = passwordOptions.concat(numbers);
+  }
+  return true;
 }
